@@ -15,7 +15,12 @@ function myFunction() {
 }
 //myFunction();
 
-//🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
+//🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: Nested functions can access the internal variable because
+// Javascript is a 2 pass compiler that begins with global scope, then goes internal to 
+// block and function scopes. As such, closure is the resulting phenomenon where functions
+// can reference external variables that were accessed and declared by the compiler first. 
+// All in all, variables of functions declared within functions have the ability to reach
+// outward for context, but never inward. 
 
 
 
@@ -30,10 +35,17 @@ function myFunction() {
 💡 NOTE: you may use a for loop for this function if you wish 
 */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(number) {
+  let count = 0;
+    for (let i = 0; i < number+1; i ++) {
+      count = count + i;
   }
+  return count;
+}
+
+const sum1 = summation(4);
+
+console.log(sum1);
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -60,9 +72,16 @@ const zooAnimals = [
   💡 NOTE: the array returned should be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(array){
+    const displayNames = [];
+    array.forEach( array => {
+      let string = `name: ${array.animal_name}, scientific: ${array.scientific_name}`;
+      displayNames.push(string);
+    });
+    return displayNames;
   }
+
+  //console.log(animalNames(zooAnimals));
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
